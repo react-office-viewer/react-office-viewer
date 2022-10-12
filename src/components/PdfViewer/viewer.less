@@ -1,0 +1,649 @@
+:root {
+  --dir-factor: 1;
+  --sidebar-width: 200px;
+  --sidebar-transition-duration: 200ms;
+  --sidebar-transition-timing-function: ease;
+  --scale-select-container-width: 140px;
+  --scale-select-overflow: 22px;
+  --toolbar-height: 32px;
+  --viewer-padding-top: 6px;
+  --canvas-wrapper-border: 9px solid transparent;
+  --toolbar-icon-opacity: 1;
+  --doorhanger-icon-opacity: 0.9;
+  --doorhanger-border-color-whcm: 1px solid ButtonText;
+  --main-color: rgba(12, 12, 13, 1);
+  --body-bg-color: rgba(237, 237, 240, 1);
+  /*#if !MOZCENTRAL*/
+  --errorWrapper-bg-color: rgba(255, 110, 110, 1);
+  /*#endif*/
+  --progressBar-percent: 0%;
+  --progressBar-end-offset: 0;
+  --progressBar-color: rgba(10, 132, 255, 1);
+  --progressBar-indeterminate-bg-color: rgba(221, 221, 222, 1);
+  --progressBar-indeterminate-blend-color: rgba(116, 177, 239, 1);
+  --scrollbar-color: auto;
+  --scrollbar-bg-color: auto;
+  --toolbar-icon-bg-color: rgba(0, 0, 0, 1);
+  --toolbar-icon-hover-bg-color: rgba(0, 0, 0, 1);
+
+  --sidebar-narrow-bg-color: rgba(237, 237, 240, 0.9);
+  --sidebar-toolbar-bg-color: rgba(245, 246, 247, 1);
+  --toolbar-bg-color: #474747; //rgba(249, 249, 250, 1);
+  --toolbar-border-color: #474747; //rgba(204, 204, 204, 1);
+  --button-hover-color: rgba(0, 0, 0, 1);//rgba(221, 222, 223, 1);
+  --toggled-btn-color: rgba(0, 0, 0, 1);
+  --toggled-btn-bg-color: rgba(0, 0, 0, 0.3);
+  --toggled-hover-active-btn-color: rgba(0, 0, 0, 0.4);
+  --dropdown-btn-bg-color: rgba(215, 215, 219, 1);
+  --separator-color: rgba(0, 0, 0, 0.3);
+  --field-color: rgba(6, 6, 6, 1);
+  --field-bg-color: rgba(255, 255, 255, 1);
+  --field-border-color: rgba(187, 187, 188, 1);
+  --treeitem-color: rgba(0, 0, 0, 0.8);
+  --treeitem-hover-color: rgba(0, 0, 0, 0.9);
+  --treeitem-selected-color: rgba(0, 0, 0, 0.9);
+  --treeitem-selected-bg-color: rgba(0, 0, 0, 0.25);
+  --sidebaritem-bg-color: rgba(0, 0, 0, 0.15);
+  --doorhanger-bg-color: rgba(255, 255, 255, 1);
+  --doorhanger-border-color: rgba(12, 12, 13, 0.2);
+  --doorhanger-hover-color: rgba(12, 12, 13, 1);
+  --doorhanger-hover-bg-color: rgba(237, 237, 237, 1);
+  --doorhanger-separator-color: rgba(222, 222, 222, 1);
+  --dialog-button-border: 0 none;
+  --dialog-button-bg-color: rgba(12, 12, 13, 0.1);
+  --dialog-button-hover-bg-color: rgba(12, 12, 13, 0.3);
+  --toolbarSidebar-box-shadow: none;
+  --toolbarSidebar-border-bottom: 1px solid var(--toolbar-border-color);
+
+  --loading-icon: url(images/loading-icon.gif);
+  --toobar-background: url(images/texture.png);
+  --page-border-image: url(images/shadow.png);
+  --treeitem-expanded-icon: url(images/treeitem-expanded.svg);
+  --treeitem-collapsed-icon: url(images/treeitem-collapsed.svg);
+  --toolbarButton-editorFreeText-icon: url(images/toolbarButton-editorFreeText.svg);
+  --toolbarButton-editorInk-icon: url(images/toolbarButton-editorInk.svg);
+  --toolbarButton-menuArrow-icon: url(images/toolbarButton-menuArrow.svg);
+  --toolbarButton-sidebarToggle-icon: url(images/toolbarButton-sidebarToggle.svg);
+  --toolbarButton-secondaryToolbarToggle-icon: url(images/toolbarButton-secondaryToolbarToggle.svg);
+  --toolbarButton-pageUp-icon: url(images/toolbarButton-pageUp.png);
+  --toolbarButton-pageDown-icon: url(images/toolbarButton-pageDown.png);
+  --toolbarButton-zoomOut-icon: url(images/toolbarButton-zoomOut.svg);
+  --toolbarButton-zoomIn-icon: url(images/toolbarButton-zoomIn.svg);
+  --toolbarButton-presentationMode-icon: url(images/toolbarButton-presentationMode.svg);
+  --toolbarButton-print-icon: url(images/toolbarButton-print.svg);
+  /*#if GENERIC*/
+  --toolbarButton-openFile-icon: url(images/toolbarButton-openFile.svg);
+  /*#endif*/
+  --toolbarButton-download-icon: url(images/toolbarButton-download.svg);
+  --toolbarButton-bookmark-icon: url(images/toolbarButton-bookmark.svg);
+  --toolbarButton-viewThumbnail-icon: url(images/toolbarButton-viewThumbnail.svg);
+  --toolbarButton-viewOutline-icon: url(images/toolbarButton-viewOutline.svg);
+  --toolbarButton-viewAttachments-icon: url(images/toolbarButton-viewAttachments.svg);
+  --toolbarButton-viewLayers-icon: url(images/toolbarButton-viewLayers.svg);
+  --toolbarButton-currentOutlineItem-icon: url(images/toolbarButton-currentOutlineItem.svg);
+  --toolbarButton-search-icon: url(images/toolbarButton-search.svg);
+  --findbarButton-previous-icon: url(images/findbarButton-previous.svg);
+  --findbarButton-next-icon: url(images/findbarButton-next.svg);
+  --secondaryToolbarButton-firstPage-icon: url(images/secondaryToolbarButton-firstPage.svg);
+  --secondaryToolbarButton-lastPage-icon: url(images/secondaryToolbarButton-lastPage.svg);
+  --secondaryToolbarButton-rotateCcw-icon: url(images/secondaryToolbarButton-rotateCcw.svg);
+  --secondaryToolbarButton-rotateCw-icon: url(images/secondaryToolbarButton-rotateCw.svg);
+  --secondaryToolbarButton-selectTool-icon: url(images/secondaryToolbarButton-selectTool.svg);
+  --secondaryToolbarButton-handTool-icon: url(images/secondaryToolbarButton-handTool.svg);
+  --secondaryToolbarButton-scrollPage-icon: url(images/secondaryToolbarButton-scrollPage.svg);
+  --secondaryToolbarButton-scrollVertical-icon: url(images/secondaryToolbarButton-scrollVertical.svg);
+  --secondaryToolbarButton-scrollHorizontal-icon: url(images/secondaryToolbarButton-scrollHorizontal.svg);
+  --secondaryToolbarButton-scrollWrapped-icon: url(images/secondaryToolbarButton-scrollWrapped.svg);
+  --secondaryToolbarButton-spreadNone-icon: url(images/secondaryToolbarButton-spreadNone.svg);
+  --secondaryToolbarButton-spreadOdd-icon: url(images/secondaryToolbarButton-spreadOdd.svg);
+  --secondaryToolbarButton-spreadEven-icon: url(images/secondaryToolbarButton-spreadEven.svg);
+  --secondaryToolbarButton-documentProperties-icon: url(images/secondaryToolbarButton-documentProperties.svg);
+}
+.hidden,
+[hidden] {
+  display: none !important;
+}
+.container{
+  position: relative;
+  width:100%;
+}
+.wrapper {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.viewerContainer {
+  overflow: auto;
+  position: relative;
+  top: 0;
+  // top: var(--toolbar-height);
+  width: 100%;
+  outline: none;
+  background-color: var(--body-bg-color) ;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .page{
+    position: relative;
+    margin-top: var(--viewer-padding-top);
+  }
+  .canvasWrapper{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    border: var(--canvas-wrapper-border);
+    border-image: var(--page-border-image) 9 9 repeat;
+  }
+  .textLayer{
+    position: absolute;
+    //transform: scale(0.9);
+    left: 50%;
+    // top: 6px;
+    border-top: var(--canvas-wrapper-border);
+    transform: translateX(-50%);
+    display: inline-block;
+    opacity: 0.5;
+    overflow: hidden;
+    > span{
+      position: absolute;
+      color:#666;
+      transform-origin:0 0;
+      cursor: text;
+      white-space: nowrap;
+    }
+    ::selection{
+      background:rgb(0,0,255)
+    }
+  }
+
+}
+
+.toolbarContainer {
+  width: 100%;
+}
+.toolbarContainer,
+.findbar,
+.secondaryToolbar,
+.editorParamsToolbar {
+  position: relative;
+  height: var(--toolbar-height);
+  background-color: var(--toolbar-bg-color);
+  background-image: var(--toobar-background),
+    linear-gradient(hsla(0, 0%, 32%, 0.99), hsla(0, 0%, 27%, 0.95));
+  box-shadow: 0 1px 0 var(--toolbar-border-color);
+}
+
+.toolbarViewer {
+  height: var(--toolbar-height);
+  display: flex;
+  justify-content: space-between;
+}
+.loadingBar {
+  position: absolute;
+  inset-inline: 0 var(--progressBar-end-offset);
+  height: 4px;
+  background-color: var(--body-bg-color);
+  border-bottom: 1px solid var(--toolbar-border-color);
+  transition-property: inset-inline-start;
+  transition-duration: var(--sidebar-transition-duration);
+  transition-timing-function: var(--sidebar-transition-timing-function);
+}
+.loadingBar .progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  transform: scaleX(var(--progressBar-percent));
+  transform-origin: 0 0;
+  height: 100%;
+  background-color: var(--progressBar-color);
+  overflow: hidden;
+  transition: transform 200ms;
+}
+.findbar,
+.secondaryToolbar,
+.editorParamsToolbar {
+  top: 32px;
+  position: absolute;
+  z-index: 10000;
+  height: auto;
+  padding: 0 4px;
+  margin: 4px 2px;
+  font-size: 12px;
+  line-height: 14px;
+  text-align: left;
+  cursor: default;
+}
+
+.pagination{
+  display: flex;
+  align-items: center;
+  .pageNumber{
+    width: 35px;
+  }
+  .numPages{
+    color:#ccc;
+  }
+}
+
+.toolbarViewerMiddle {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+
+.toolbarViewerLeft > *,
+.toolbarViewerMiddle > *,
+.toolbarViewerRight > *,
+.toolbarSidebarLeft *,
+.toolbarSidebarRight *,
+.findbar * {
+  position: relative;
+}
+
+.toolbarViewerLeft {
+  padding-inline-start: 1px;
+  display: flex;
+}
+.toolbarViewerRight {
+  padding-inline-end: 1px;
+  display: flex;
+}
+.toolbarSidebarRight {
+  display: flex;
+  padding-inline-end: 2px;
+}
+
+.splitToolbarButton {
+  margin: 2px;
+  display: flex
+}
+// .splitToolbarButton > .toolbarButton {
+//   float: inline-start;
+// }
+
+.toolbarButton,
+.secondaryToolbarButton,
+.dialogButton {
+  border: 0 none;
+  background: none;
+  width: 28px;
+  height: 28px;
+  // background-color: ;
+}
+.toolbarButton > span {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.toolbarButton[disabled],
+.secondaryToolbarButton[disabled],
+.dialogButton[disabled] {
+  opacity: 0.5;
+}
+
+.splitToolbarButton > .toolbarButton:hover,
+.splitToolbarButton > .toolbarButton:focus-visible{
+  background-color: var(--button-hover-color);
+}
+.splitToolbarButton > .toolbarButton {
+  position: relative;
+  margin: 0;
+}
+.toolbarSidebar .splitToolbarButton > .toolbarButton {
+  margin-inline-end: 2px;
+}
+
+.splitToolbarButtonSeparator {
+  float: inline-start;
+  margin: 4px 0;
+  width: 1px;
+  height: 20px;
+  background-color: var(--separator-color);
+}
+
+.toolbarButton,
+.dropdownToolbarButton,
+.secondaryToolbarButton,
+.dialogButton {
+  min-width: 16px;
+  margin: 2px 1px;
+  padding: 2px 6px 0;
+  border: none;
+  border-radius: 2px;
+  color: var(--main-color);
+  font-size: 12px;
+  line-height: 14px;
+  user-select: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.toolbarButton > input{
+  cursor: pointer;
+}
+.toolbarButton:hover,
+.toolbarButton:focus-visible {
+  // border: 1px solid var(--button-hover-color);
+  // border-top: none;
+  // border-bottom: none;
+  background-color: var(--button-hover-color);
+}
+.secondaryToolbarButton:hover,
+.secondaryToolbarButton:focus-visible {
+  background-color: var(--doorhanger-hover-bg-color);
+  color: var(--doorhanger-hover-color);
+}
+
+.toolbarButton.toggled,
+.splitToolbarButton.toggled > .toolbarButton.toggled,
+.secondaryToolbarButton.toggled {
+  background-color: var(--toggled-btn-bg-color);
+  color: var(--toggled-btn-color);
+}
+
+.toolbarButton.toggled::before,
+.secondaryToolbarButton.toggled::before {
+  background-color: var(--toggled-btn-color);
+}
+.toolbarSidebar .toolbarButton.toggled::before{
+  background-color: transparent;
+}
+.toolbarButton.toggled:hover:active,
+.splitToolbarButton.toggled > .toolbarButton.toggled:hover:active,
+.secondaryToolbarButton.toggled:hover:active {
+  background-color: var(--toggled-hover-active-btn-color);
+}
+
+.dropdownToolbarButton {
+  width: var(--scale-select-container-width);
+  padding: 0;
+  overflow: hidden;
+  background-color: var(--dropdown-btn-bg-color);
+}
+.dropdownToolbarButton::after {
+  top: 6px;
+  inset-inline-end: 7px;
+  pointer-events: none;
+  background-image: var(--toolbarButton-menuArrow-icon);
+}
+
+.dropdownToolbarButton > select {
+  width: calc(
+    var(--scale-select-container-width) + var(--scale-select-overflow)
+  );
+  height: 28px;
+  font-size: 12px;
+  color: var(--main-color);
+  margin: 0;
+  padding: 1px 0 2px;
+  padding-inline-start: 4px;
+  border: none;
+  background-color: var(--dropdown-btn-bg-color);
+}
+.dropdownToolbarButton > select:hover,
+.dropdownToolbarButton > select:focus-visible {
+   background-color: #fff;
+  // color: var(--toggled-btn-color);
+}
+.dropdownToolbarButton > select > option {
+  background: var(--doorhanger-bg-color);
+  color: var(--main-color);
+}
+.toolbarButtonSpacer {
+  width: 30px;
+  display: inline-block;
+  height: 1px;
+}
+
+.toolbarButton::before,
+.secondaryToolbarButton::before,
+.dropdownToolbarButton::after,
+.treeItemToggler::before {
+  /* All matching images have a size of 16x16
+   * All relevant containers have a size of 28x28 */
+  position: absolute;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+
+  content: "";
+  // background-color: var(--toolbar-icon-bg-color);
+  background-size: cover;
+}
+
+// .dropdownToolbarButton:hover::after,
+// .dropdownToolbarButton:focus-visible::after,
+// .dropdownToolbarButton:active::after {
+//   background-color: var(--toolbar-icon-hover-bg-color);
+// }
+
+.toolbarButton::before {
+  opacity: var(--toolbar-icon-opacity);
+  top: 6px;
+  left: 6px;
+}
+
+.toolbarButton:hover::before,
+.toolbarButton:focus-visible::before,
+.secondaryToolbarButton:hover::before,
+.secondaryToolbarButton:focus-visible::before {
+  //background-color: var(--toolbar-icon-hover-bg-color);
+}
+
+.secondaryToolbarButton::before {
+  opacity: var(--doorhanger-icon-opacity);
+  top: 5px;
+  inset-inline-start: 12px;
+}
+
+.sidebarToggle::before {
+  background-image: var(--toolbarButton-sidebarToggle-icon);
+  transform: scaleX(var(--dir-factor));
+}
+
+.secondaryToolbarToggle::before {
+  background-image: var(--toolbarButton-secondaryToolbarToggle-icon);
+  transform: scaleX(var(--dir-factor));
+}
+
+.previous::before {
+  background-image: url(./images/toolbarButton-pageUp.png) //var(--toolbarButton-pageUp-icon);
+}
+
+.next::before {
+  background-image: var(--toolbarButton-pageDown-icon);
+}
+
+.zoomOut::before {
+  background-image: var(--toolbarButton-zoomOut-icon);
+}
+
+.zoomIn::before {
+  background-image: var(--toolbarButton-zoomIn-icon);
+}
+
+.print::before,
+.secondaryPrint::before {
+  background-image: var(--toolbarButton-print-icon);
+}
+
+/*#if GENERIC*/
+.openFile::before,
+.secondaryOpenFile::before {
+  background-image: var(--toolbarButton-openFile-icon);
+}
+/*#endif*/
+
+.download::before,
+.secondaryDownload::before {
+  background-image: var(--toolbarButton-download-icon);
+}
+.pageRotateCw::before {
+  background-image: var(--secondaryToolbarButton-rotateCw-icon);
+}
+.pageRotateCcw::before {
+  background-image: var(--secondaryToolbarButton-rotateCcw-icon);
+}
+.viewThumbnail::before {
+  background-image: var(--toolbarButton-viewThumbnail-icon);
+}
+.whitePage{
+  position: absolute;
+  z-index: 2000;
+  width: 100%;
+  height: 100%;
+  // background-color: var(--body-bg-color);
+  .loading{
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    transform: translate(-50%, 300px) scale(1.5);
+  }
+}
+
+.sidebarContainer {
+  position: absolute;
+  left: 0;
+  top: 32px;
+  bottom: 0;
+  opacity:0;
+  //inset-inline-start: calc(-1 * var(--sidebar-width));
+  width: var(--sidebar-width);
+  visibility: hidden;
+  z-index: 100;
+  font: message-box;
+  border-top: 1px solid rgba(51, 51, 51, 1);
+  border-inline-end: var(--doorhanger-border-color-whcm);
+  transition-property: opacity;
+  transition-duration: var(--sidebar-transition-duration);
+  transition-timing-function: var(--sidebar-transition-timing-function);
+}
+.outerContainer {
+  position: relative;
+  width: 100%;
+  left: 0;
+  right: 0;
+  cursor: default;
+  &.sidebarMoving .sidebarContainer,
+  &.sidebarOpen .sidebarContainer
+  {
+    visibility: visible;
+  }
+  &.sidebarOpen .sidebarContainer{
+    opacity: 1;
+  }
+}
+
+.sidebarContent {
+  top: 32px;
+  bottom: 0;
+  inset-inline-start: 0;
+  overflow: auto;
+  position: absolute;
+  width: 100%;
+  background-color: rgba(247, 247, 247, .9);
+  box-shadow: inset calc(-1px * var(--dir-factor)) 0 0 rgba(0, 0, 0, 0.25);
+}
+.toolbarSidebar {
+  width: 100%;
+  height: 32px;
+  background-color: var(--sidebar-toolbar-bg-color);
+  box-shadow: var(--toolbarSidebar-box-shadow);
+  border-bottom: var(--toolbarSidebar-border-bottom);
+}
+
+.sidebarResizer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  inset-inline-end: -6px;
+  width: 6px;
+  z-index: 200;
+  cursor: ew-resize;
+}
+.thumbnailView,
+.outlineView,
+.attachmentsView,
+.layersView {
+  position: absolute;
+  width: calc(100% - 8px);
+  top: 0;
+  bottom: 0;
+  padding: 4px 4px 0;
+  overflow: auto;
+  user-select: none;
+}
+.thumbnailView {
+  width: calc(100% - 60px);
+  padding: 10px 30px 0;
+  box-sizing: content-box;
+}
+
+.thumbnail {
+  float: inline-start;
+  cursor: pointer;
+  margin: 0 10px 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3), 0 2px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 1);
+  background-clip: content-box;
+}
+.thumbnail:hover, .thumbnail.selected {
+  // background-color: var(--sidebaritem-bg-color);
+  box-shadow: 0px 0px 9px #000;
+  background-clip: padding-box;
+  color: rgba(255, 255, 255, 0.9);
+  // border: none;
+  margin:0 6px 5px;
+  padding: 6px;
+}
+.thumbnail.selected {
+  opacity: 1;
+}
+
+.thumbnailImage {
+  border: 1px solid rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.3);
+  opacity: 0.8;
+  z-index: 99;
+  background-color: rgba(255, 255, 255, 1);
+  background-clip: content-box;
+}
+
+.thumbnailSelectionRing {
+  border-radius: 2px;
+  padding: 7px;
+}
+
+.thumbnail.selected > .thumbnailSelectionRing > .thumbnailImage {
+  opacity: 1;
+}
+
+.thumbnail.selected > .thumbnailSelectionRing {
+  background-color: var(--sidebaritem-bg-color);
+  background-clip: padding-box;
+  color: rgba(255, 255, 255, 1);
+}
+.print-iframe{
+  height: 100%;
+}
+/* chrome */ 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button { 
+    -webkit-appearance: none; 
+}
+/* 火狐浏览器 */
+input[type="number"]{ 
+    -moz-appearance: textfield; 
+}
