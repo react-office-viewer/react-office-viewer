@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "test git repo"
+    "url": "https://github.com/react-office-viewer/react-office-viewer.git"
   },
   "keywords": [
     "pdfjs",
