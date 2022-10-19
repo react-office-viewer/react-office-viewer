@@ -75,6 +75,7 @@ export const usePdf = ({
         pdfPageRef.current = pdfPage;
     }, [pdfPage])
     useEffect(() => {
+        if (!file) return;
         const config = { withCredentials };
         if (isFunction(file)) {
             config.url = file();
@@ -94,9 +95,9 @@ export const usePdf = ({
                     onDocumentLoadSuccessRef.current(loadedPdfDocument);
                 }
             },
-            () => {
+            (info) => {
                 if (isFunction(onDocumentLoadFailRef.current)) {
-                    onDocumentLoadFailRef.current();
+                    onDocumentLoadFailRef.current(info);
                 }
             }
         );
@@ -186,6 +187,7 @@ export const usePdf = ({
     }, [pdfPage, scale, rotate]);
 
     const createTextlayer = (wrapper, text, page, viewport, width, height) => {
+        console.log('tt', text);
         if (text) {
             let oldDiv = document.getElementById('pdf_viewer_textLayer');
             const textLayerDiv = document.createElement('div');

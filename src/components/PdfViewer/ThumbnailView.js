@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
+import { _getObjectUrl } from "../../service/api";
 import styles from './viewer.less';
 const THUMBNAIL_WIDTH = 98; // px
 
@@ -89,8 +90,8 @@ export default forwardRef((props, ref) => {
                 const img = document.createElement('img');
                 if (canvasEl.toBlob) {
                     canvasEl.toBlob(blob => {
-                        //img.src = URL.createObjectURL(blob);
-                        img.src = canvasEl.toDataURL();
+                        img.src = _getObjectUrl(blob);
+                        // img.src = canvasEl.toDataURL();
                     })
                 } else {
                     img.src = canvasEl.toDataURL();
@@ -98,14 +99,14 @@ export default forwardRef((props, ref) => {
                 let pageDiv = document.getElementById(`page=${count + 1}`);
                 if (!pageDiv) {
                     //新加载的页面
-                    let className = 'thumbnail';
+                    let className = styles['thumbnail'];
                     pageDiv = document.createElement('div');
                     pageDiv.setAttribute('id', `page=${count + 1}`);
                     if (count == 0) {
                         if (!selectedPageRef.current) {
                             //第一页默认设置成选中状态
                             selectedPageRef.current = pageDiv
-                            className = 'thumbnail selected';
+                            className = `${styles['thumbnail']} ${styles['selected']}`;
                         }
                     }
                     pageDiv.setAttribute('class', className);

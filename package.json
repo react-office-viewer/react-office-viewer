@@ -1,6 +1,6 @@
 {
-  "name": "react-office-viewer",
-  "version": "0.0.2",
+  "name": "react-office-viewermm",
+  "version": "1.0.0",
   "description": "A React component to preview a PDF document, basic toolbar functions are supported.",
   "main": "build/bundle.js",
   "scripts": {

@@ -1,27 +1,25 @@
 import React, { useEffect, useRef, useState, useImperativeHandle, forwardRef } from 'react'
 import ThumbnailView from './ThumbnailView'
 import printView from './printView';
-import { useTranslation } from 'react-i18next'
-import '../../i8n.js';
 import styles from './viewer.less';
 export default forwardRef((props, ref) => {
     const {
         pdfDocument,
         pdfPage,
-        showError,
+        onShowError,
         onZoomSearch,
         onPageSearch,
         onRotateChange,
+        onDownloadFile,
+        onUploadFile,
+        onShowLoading,
         pageOut, //从父组件传入，一定是在范围之内的生效页码
         scaleOut,//从父组件传入，一定是数字类型
         SCALE_STEP,
         MAX_SCALE,
         MIN_SCALE,
-        uploadFile,
         FILE_LIMIT,
-        locale
     } = props;
-    const { t, i18n } = useTranslation();
     const [pageNo, setPageNo] = useState(1); //本组件维护，可能是不合法的页码
     const [scale, setScale] = useState('page-actual');//本组件维护，可能是string类型
     const [customValue, setCustomValue] = useState('');
@@ -31,7 +29,7 @@ export default forwardRef((props, ref) => {
     const inputRef = useRef();
     const pageRef = useRef(pageNo);
     const pageOutRef = useRef(pageOut);
-    const fileRef = useRef();
+    const inputFileRef = useRef();
     const thumbRef = useRef();
     const printFrameRef = useRef();
     const sidebarContainerRef = useRef();
@@ -61,9 +59,7 @@ export default forwardRef((props, ref) => {
     useEffect(() => {
         sidebarOpenRef.current = sidebarOpen;
     }, [sidebarOpen])
-    useEffect(() => {
-        i18n.changeLanguage(locale);
-    }, [locale])
+
     function addEvent(obj, type, callback) {
         if (obj.addEventListener) {
             // W3C内核
@@ -146,20 +142,20 @@ export default forwardRef((props, ref) => {
         onRotateChange(false);
     }
     const handleInputFileChange = e => {
-        let files = fileRef.current.files;
+        let files = inputFileRef.current.files;
         if (files.length > 0) {
             if (files[0].type !== 'application/pdf') {
-                showError('请上传pdf格式的文件！');
+                onShowError(true, t('formatInfo'));
                 return;
             }
             if (files[0].size > FILE_LIMIT) {
-                showError('请上传50M以内大小的文件！');
+                onShowError(true, t('sizeInfo'));
                 return;
             }
-            uploadFile(files[0]);
+            onUploadFile(files[0]);
             setShowDownload(false);
         }
-        //console.log('file', fileRef.current.files)
+        //console.log('file', inputFileRef.current.files)
     }
     const onShowSidebar = () => {
         if (sidebarOpen.includes('sidebarOpen')) {
@@ -195,11 +191,15 @@ export default forwardRef((props, ref) => {
             `
             doc.head.append(style);
         }
-        printView(pdfDocument, doc, printContainer);
         iframe.contentWindow.focus();
-        setTimeout(() => {
+        onShowLoading(true);
+        printView(pdfDocument, printContainer).then(res => {
+            onShowLoading(false);
             iframe.contentWindow.print();
-        }, 10000)
+        });
+    }
+    const onDownload = () => {
+        onDownloadFile();
     }
     return (
         <div className={`${styles["outerContainer"]} ${sidebarOpen}`}>
@@ -226,14 +226,14 @@ export default forwardRef((props, ref) => {
 
                     </div>
                     <div className={styles["toolbarViewerRight"]}>
-                        <button className={`${styles["toolbarButton"]} ${styles["openFile"]}`} title={t("openFile")}>
-                            <input type="file" style={{ opacity: 0, width: '100%' }} onChange={handleInputFileChange} ref={fileRef} />
+                        <button className={`${styles["toolbarButton"]} ${styles["openFile"]}`} title={t("openFile")} onChange={handleInputFileChange} >
+                            <input type="file" style={{ opacity: 0, width: '100%' }} ref={inputFileRef} />
                         </button>
 
                         <button className={`${styles["toolbarButton"]} ${styles["print"]}`} title={t("print")} onClick={onPrint}>
                         </button>
                         {
-                            showDownload && <button className={`${styles["toolbarButton"]} ${styles["download"]}`} title={t("download")} >
+                            showDownload && <button className={`${styles["toolbarButton"]} ${styles["download"]}`} title={t("download")} onClick={onDownload}>
                             </button>
                         }
                         <div className={styles["splitToolbarButton"]}>
@@ -289,12 +289,12 @@ export default forwardRef((props, ref) => {
                 </div>
                 <ThumbnailView ref={thumbRef} pdfDocument={pdfDocument} onPageSearch={onPageSearch} page={pageOut} />
                 <div className={styles["sidebarResizer"]}></div>
-                <iframe
-                    className={styles["print-iframe"]}
-                    ref={printFrameRef}
-                    frameborder="0">
-                </iframe>
             </div>
+            <iframe
+                className={styles["print-iframe"]}
+                ref={printFrameRef}
+                frameborder="0">
+            </iframe>
         </div>
     )
 })

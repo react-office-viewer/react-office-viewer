@@ -15,5 +15,9 @@ export default {
     'pageFitOption': 'Page Fit',
     'pageWidthOption': 'Page Width',
     'sidebarToggle': 'Toggle Sidebar',
-    'viewThumbnail': 'Show Thumbnails'
+    'viewThumbnail': 'Show Thumbnails',
+    'close': 'Close',
+    'invalidFile': 'Invalid or corrupt pdf file. Details：',
+    'formatInfo': 'Please upload a file in pdf format',
+    'sizeInfo': 'Please upload a file with size less than 50M',
 }

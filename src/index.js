@@ -1,1 +1,1 @@
-export {default as PdfViewer} from './components/PdfViewer/index'
+export { default as PdfViewer } from './components/PdfViewer/index'

@@ -15,5 +15,9 @@ export default {
     'pageFitOption': '适合高度',
     'pageWidthOption': '适合页宽',
     'sidebarToggle': '切换侧栏',
-    'viewThumbnail': '显示缩略图'
+    'viewThumbnail': '显示缩略图',
+    'close': '关闭',
+    'invalidFile': '无效或损坏的PDF文件。详细信息：',
+    'formatInfo': '请上传pdf格式的文件！',
+    'sizeInfo': '请上传50M以内大小的文件！',
 }
