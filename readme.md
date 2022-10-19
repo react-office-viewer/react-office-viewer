@@ -1,5 +1,9 @@
 # read me
 ```
+npm install react-office-viewer
+
+```
+```
 import { PdfViewer } from 'react-office-viewer';
 //用法一
 <PdfViewer file="http://xxxx" fileName="test.pdf" locale="en" />
