@@ -187,7 +187,7 @@ export const usePdf = ({
     }, [pdfPage, scale, rotate]);
 
     const createTextlayer = (wrapper, text, page, viewport, width, height) => {
-        console.log('tt', text);
+        // console.log('tt', text);
         if (text) {
             let oldDiv = document.getElementById('pdf_viewer_textLayer');
             const textLayerDiv = document.createElement('div');

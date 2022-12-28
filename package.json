@@ -1,7 +1,7 @@
 {
-  "name": "react-office-viewermm",
-  "version": "1.0.0",
-  "description": "A React component to preview a PDF document, basic toolbar functions are supported.",
+  "name": "react-office-viewer",
+  "version": "1.0.1",
+  "description": "A React component to preview document of PDF or xls/xlsx , basic toolbar functions are supported.",
   "main": "build/bundle.js",
   "scripts": {
     "build": "yarn run rollup -c",
@@ -14,18 +14,23 @@
   },
   "keywords": [
     "pdfjs",
+    "xlsx-viewer",
+    "xlsx-react-viewer",
     "pdf-react-viewer",
-    "pdf-react"
+    "pdf-react",
+    "xlsx-react"
   ],
   "author": "yiiran",
   "license": "ISC",
   "dependencies": {
+    "@handsontable/react": "^12.1.3",
     "i18next": "^21.10.0",
     "i18next-browser-languagedetector": "^6.1.8",
     "pdfjs-dist": "2.10.377",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-i18next": "^11.18.6"
+    "react-i18next": "^11.18.6",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",

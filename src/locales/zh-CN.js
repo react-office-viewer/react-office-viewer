@@ -17,7 +17,9 @@ export default {
     'sidebarToggle': '切换侧栏',
     'viewThumbnail': '显示缩略图',
     'close': '关闭',
-    'invalidFile': '无效或损坏的PDF文件。详细信息：',
+    'invalidFile': '无效或损坏的文件。详细信息：',
     'formatInfo': '请上传pdf格式的文件！',
+    'formatInfoXlsx': '仅支持url与File类型的xls/xlsx文件！',
     'sizeInfo': '请上传50M以内大小的文件！',
+    'supportFileTypes': '目前仅支持xlsx,xls,pdf格式的文件！'
 }
