@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import _PdfViewer from './components/PdfViewer/index'
-import _XlsxViewer from './components/XlsxViewer/index'
-import { getFileTypeFromArrayBuffer, getFileTypeFromFileName, getFileType } from './service/api';
+import _SheetViewer from './components/XlsxViewer/index'
+import { ALL_FILE_TYPES, getFileTypeFromArrayBuffer, getFileTypeFromFileName, getFileTypeFromUploadType } from './utils/utils';
 import { useTranslation } from 'react-i18next'
 import PropTypes from 'prop-types';
 import styles from "./components/XlsxViewer/style.less";
 import './i8n.js';
-const supportTypeList = ['xlsx_docx', 'xls_doc', 'pdf'];
+
 function WithI18nComp(Comp) {
     return function I18n(props) {
         const { t, i18n } = useTranslation();
@@ -45,9 +45,9 @@ function _AutoFormatViewer(props) {
                         }, timeout)
                         req.onload = function (e) {
                             clearTimeout(xhrTimeOut);
-                            let fileType = getFileTypeFromArrayBuffer(req.response.slice(0, 8));
+                            let fileType = getFileTypeFromArrayBuffer(req.response);
                             setFileType(fileType);
-                            //console.log('fileType', fileType)
+                            console.log('fileType', fileType)
                         };
                         req.send();
                     } catch (e) {
@@ -55,7 +55,8 @@ function _AutoFormatViewer(props) {
                     }
                 }
             } else if (file instanceof File) {
-                let fileType = getFileType(file.type);
+                let fileType = getFileTypeFromUploadType(file.type);
+                console.log('fileType', fileType)
                 setFileType(fileType);
             }
         }
@@ -68,9 +69,9 @@ function _AutoFormatViewer(props) {
         <input type='file' onChange={onFlieChange} />
         <div style={{ position: 'relative' }}>
             {
-                supportTypeList.includes(fileType) ? (<>
+                ALL_FILE_TYPES.includes(fileType) ? (<>
                     {
-                        fileType == 'pdf' ? <PdfViewer {...props} file={file} /> : <XlsxViewer {...props} file={file} fileType={fileType} />
+                        fileType == 'pdf' ? <PdfViewer {...props} file={file} /> : <SheetViewer {...props} file={file} _fileType={fileType} />
                     }
                 </>) : <p className={styles.errorLine} >{t('supportFileTypes')}</p>
             }
@@ -93,7 +94,7 @@ _AutoFormatViewer.propTypes = {
     height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 }
 export const PdfViewer = WithI18nComp(_PdfViewer);
-export const XlsxViewer = WithI18nComp(_XlsxViewer);
+export const SheetViewer = WithI18nComp(_SheetViewer);
 export default WithI18nComp(_AutoFormatViewer);
 
 

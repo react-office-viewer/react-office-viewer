@@ -5,10 +5,10 @@ import 'handsontable/dist/handsontable.full.css';
 import styles from "./style.less"
 import loadingImg from "../../assets/images/loading-icon.gif"
 import downloadImg from "../../assets/images/toolbarButton-download.svg"
-import { _getBlobUrlFromBuffer, _download, getFileType } from '../../service/api';
+import { _getBlobUrlFromBuffer, _download, getFileTypeFromUploadType } from '../../utils/utils';
 import PropTypes from 'prop-types';
 export default function XlsxViewer(props) {
-    const { file: outFile, fileName: outFileName, width, height, fileType, timeout } = props;
+    const { file: outFile, fileName: outFileName, width, height, _fileType, timeout } = props;
     const [data, setData] = useState({});
     const [file, setFile] = useState();
     const [fileArrayBuffer, setFileArrayBuffer] = useState(); //ArrayBuffer类型的文件
@@ -46,6 +46,7 @@ export default function XlsxViewer(props) {
                             setFileArrayBuffer(req.response);
                             var data = new Uint8Array(req.response);
                             var workbook = XLSX.read(data, { type: "array" });
+                            console.log('workbook', workbook)
                             loadData(workbook);
                         } catch (e) {
                             onShowError(true)
@@ -58,22 +59,21 @@ export default function XlsxViewer(props) {
                 }
 
             } else if (file instanceof File) {
-                let fileType = getFileType(file.type);
                 let fName = file.name;
-                if ((fileType == 'xlsx_docx') || (fileType == 'xls_doc')) {
-                    let reader = new FileReader();
-                    reader.readAsArrayBuffer(file);
-                    reader.onload = e => {
-                        setFileName(fName);
-                        let data = e.target.result;
-                        setFileArrayBuffer(data);
-                        let workbook = XLSX.read(data, { type: "array" });
-                        loadData(workbook);
-                    }
-
-                } else {
-                    onShowError(true)
+                let reader = new FileReader();
+                reader.readAsArrayBuffer(file);
+                reader.onload = e => {
+                    setFileName(fName);
+                    let data = e.target.result;
+                    setFileArrayBuffer(data);
+                    let workbook = XLSX.read(data, { type: "array" });
+                    console.log('workbook', workbook)
+                    loadData(workbook);
                 }
+
+                // } else {
+                //     onShowError(true)
+                // }
             } else {
                 onShowError(true)
             }
@@ -113,8 +113,8 @@ export default function XlsxViewer(props) {
         setActiveTabKey(subDivId);
     }
     const handleDownload = e => {
-        let fileUrl = _getBlobUrlFromBuffer(fileArrayBuffer, fileType);
-        _download(fileUrl, fileName);
+        let fileUrl = _getBlobUrlFromBuffer(fileArrayBuffer, _fileType);
+        _download(fileUrl, fileName, _fileType);
     }
     return <div id='wbSheets_wrapper_id' className={styles["wbSheets_wrapper"]} style={{ width: width || '100%', overflow: 'hidden' }}>
         <div className={styles.loadingPage} style={{ display: showLoading ? 'block' : 'none' }} >

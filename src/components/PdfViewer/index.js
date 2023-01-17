@@ -4,7 +4,7 @@ import Toolbar from './Toolbar.js';
 import styles from './viewer.less';
 
 import img from "../../assets/images/loading-icon.gif"
-import { _download, _getObjectUrl, _getBlobUrl } from "../../service/api";
+import { _download, _getObjectUrl, _getBlobUrl } from "../../utils/utils";
 // if (!PDFJS.GlobalWorkerOptions.workerSrc) {
 //     // 此处的 pdf work 文件放置到了 根目录/public/js/pdfjs 下  ../../assets/js/pdfjs/pdf.worker.js
 //     PDFJS.GlobalWorkerOptions.workerSrc = '/js/pdf.worker.js';
@@ -191,7 +191,7 @@ function Preview(props) {
     const onDownloadFile = async () => {
         setShowLoading(true);
         let fileUrl = await _getBlobUrl(file, pdfDocument);
-        _download(fileUrl, fileName);
+        _download(fileUrl, fileName, 'pdf');
         setShowLoading(false);
     }
     const onShowError = (status, info) => {

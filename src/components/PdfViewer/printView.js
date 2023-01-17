@@ -1,4 +1,4 @@
-import { _getObjectUrl } from "../../service/api";
+import { _getObjectUrl } from "../../utils/utils";
 export default (pdfDocument, container) => {
     return new Promise(resolve => {
         if (pdfDocument) {

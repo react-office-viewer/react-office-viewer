@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useImperativeHandle, forwardRef } from 'react';
-import { _getObjectUrl } from "../../service/api";
+import { _getObjectUrl } from "../../utils/utils";
 import styles from './viewer.less';
 const THUMBNAIL_WIDTH = 98; // px
 
