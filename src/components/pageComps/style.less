@@ -1,0 +1,56 @@
+.title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 10px;
+  margin-top: 0;
+  margin-bottom: 0;
+  width: 100%;
+  /* border: 1px solid; */
+  // background: #1e8e3edb;
+  color: #fff;
+}
+
+.download {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  // background-image: url(../../assets/images/toolbarButton-download.svg);
+}
+
+.loadingPage {
+  position: absolute;
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+
+  .loading {
+    position: absolute;
+    z-index: 100;
+    left: 50%;
+    top: 20px;
+    transform: translate(-50%, 100px) scale(1.5);
+  }
+}
+
+
+.errorLine {
+  width: 100%;
+  height: 32px;
+  position: absolute;
+  z-index: 2000;
+  top: 0;
+  left: 0;
+  background-color: rgb(226, 30, 30);
+  color: #fff;
+  padding: 4px 10px;
+  display: flex;
+  justify-content: space-between;
+
+  >button {
+    color: #666;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+}

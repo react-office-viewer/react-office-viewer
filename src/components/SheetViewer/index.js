@@ -3,8 +3,7 @@ import * as XLSX from 'xlsx';
 import { HotTable } from '@handsontable/react';
 import 'handsontable/dist/handsontable.full.css';
 import styles from "./style.less"
-import loadingImg from "../../assets/images/loading-icon.gif"
-import downloadImg from "../../assets/images/toolbarButton-download.svg"
+import { Loading, TitleWithDownload, ErrorLine } from '../pageComps';
 import { _getBlobUrlFromBuffer, _download, getFileTypeFromUploadType } from '../../utils/utils';
 import PropTypes from 'prop-types';
 export default function XlsxViewer(props) {
@@ -46,7 +45,7 @@ export default function XlsxViewer(props) {
                             setFileArrayBuffer(req.response);
                             var data = new Uint8Array(req.response);
                             var workbook = XLSX.read(data, { type: "array" });
-                            console.log('workbook', workbook)
+                            //console.log('workbook', workbook)
                             loadData(workbook);
                         } catch (e) {
                             onShowError(true)
@@ -67,7 +66,7 @@ export default function XlsxViewer(props) {
                     let data = e.target.result;
                     setFileArrayBuffer(data);
                     let workbook = XLSX.read(data, { type: "array" });
-                    console.log('workbook', workbook)
+                    //console.log('workbook', workbook)
                     loadData(workbook);
                 }
 
@@ -117,17 +116,9 @@ export default function XlsxViewer(props) {
         _download(fileUrl, fileName, _fileType);
     }
     return <div id='wbSheets_wrapper_id' className={styles["wbSheets_wrapper"]} style={{ width: width || '100%', overflow: 'hidden' }}>
-        <div className={styles.loadingPage} style={{ display: showLoading ? 'block' : 'none' }} >
-            <div className={styles.loading}><img src={loadingImg} /></div>
-        </div>
-        <div className={styles.errorLine} style={{ display: showError ? 'flex' : 'none' }}>
-            <em>{t('invalidFile')} {errorInfo}</em>
-            <button onClick={() => onShowError(false)}>{t("close")}</button>
-        </div>
-        <div className={styles.title}>
-            <span>{fileName}</span>
-            <button className={styles["download"]} title={t("download")} onClick={handleDownload} disabled={!fileArrayBuffer}><img src={downloadImg} /></button>
-        </div>
+        <Loading showLoading={showLoading} />
+        <ErrorLine errorInfo={errorInfo} showError={showError} onShowError={onShowError} />
+        <TitleWithDownload handleDownload={handleDownload} disabled={!fileArrayBuffer} fileName={fileName} />
         <HotTable
             licenseKey="non-commercial-and-evaluation"
             data={data[activeTabKey]}

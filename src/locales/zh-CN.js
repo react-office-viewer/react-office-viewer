@@ -20,6 +20,8 @@ export default {
     'invalidFile': '无效或损坏的文件。详细信息：',
     'formatInfo': '请上传pdf格式的文件！',
     'formatInfoXlsx': '仅支持url与File类型的xls/xlsx文件！',
+    'formatInfoDocx': '暂不支持doc格式的文件，请上传docx格式的文件！',
+    'formatInfoPPTx': '暂不支持ppt/pptx文件预览，请关注后续更新！',
     'sizeInfo': '请上传50M以内大小的文件！',
-    'supportFileTypes': '目前仅支持xlsx,xls,pdf格式的文件！'
+    'supportFileTypes': '目前仅支持xlsx,xls,docx,pdf格式的文件！'
 }

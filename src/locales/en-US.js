@@ -20,6 +20,8 @@ export default {
     'invalidFile': 'Invalid or corrupt file. Details：',
     'formatInfo': 'Please upload a file in pdf format!',
     'formatInfoXlsx': 'Please upload a xls/xlsx file of url or File format!',
+    'formatInfoDocx': 'Please upload a file in docx format!',
+    'formatInfoPPTx': 'PPT/PPTX format is not supported at the moment. Please pay attention to the following updates',
     'sizeInfo': 'Please upload a file with size less than 50M',
     'supportFileTypes': 'Only xlsx, xls, pdf files are supported currently!'
 }
