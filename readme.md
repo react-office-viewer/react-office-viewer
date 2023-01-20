@@ -47,6 +47,11 @@ let params = {
 <Viewer file="http://xxxx" {...params} />
 
 ```
+# Demo
+效果样例：
+![image](https://github.com/react-office-viewer/react-office-viewer/blob/gh-pages/build/pic/pdf.png)
+![image](https://github.com/react-office-viewer/react-office-viewer/blob/gh-pages/build/pic/docx.png)
+![image](https://github.com/react-office-viewer/react-office-viewer/blob/gh-pages/build/pic/xlsx.png)
 
 # Dependencies
 handsontable,  
