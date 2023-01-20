@@ -1,4 +1,4 @@
-# read me
+# react-office-viewer:    pdf, xls, xlsx, docx
 # Features
 1. Temporary support 'pdf,xls,xlsx,docx'.For more types, please pay attention to the following updates.      
 2. Automatically identify file types of 'pdf,xls,xlsx,doc,docx,ppt,pptx' according to file arraybuffer. File suffix or file name is better but not necessary. Further more, it can avoid wrong judgment by the falsy changes of file suffix.   
