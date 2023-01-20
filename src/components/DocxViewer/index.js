@@ -9,6 +9,7 @@ export default function DocxViewer(props) {
     const [fileName, setFileName] = useState('');
     const [showError, setShowError] = useState(false);
     const [errorInfo, setErrorInfo] = useState(t('formatInfoDocx'));
+    const [scale, setScale] = useState(1);
     const [fileArrayBuffer, setFileArrayBuffer] = useState(); //ArrayBuffer类型的文件
     const [showLoading, setShowLoading] = useState(false);
     useEffect(() => {
@@ -86,14 +87,28 @@ export default function DocxViewer(props) {
     const onShowError = (status) => {
         setShowError(status);
     }
+    const onZoom = direc => {
+        if (direc == 'in') {
+            //放大
+            if (scale >= 1) return;
+            let _scale = scale + 0.1;
+            //console.log(_scale);
+            setScale(_scale.toFixed(1) * 1);
+        } else {
+            if (scale <= 0.3) return;
+            let _scale = scale - 0.1;
+            //console.log(_scale);
+            setScale(_scale.toFixed(1) * 1)
+        }
+    }
     return <div className={styles['pg-viewer-wrapper']} style={{ width: width || '100%', height: height || document.body.offsetHeight - 45 + 'px' }}>
         <Loading showLoading={showLoading} />
         <ErrorLine errorInfo={errorInfo} showError={showError} onShowError={onShowError} />
-        <TitleWithDownload backgroundColor='rgba(35,100,155,0.9)' handleDownload={handleDownload} fileName={fileName} disabled={!fileArrayBuffer} />
+        <TitleWithDownload backgroundColor='rgba(35,100,155,0.9)' handleDownload={handleDownload} fileName={fileName} disabled={!fileArrayBuffer} onZoom={onZoom} zoom={true} />
         <div
             className={styles['document-container']}
             style={{
-                width: '100%',
+                width: scale * 100 + '%',
                 height: '85%',
                 overflow: 'auto'
             }}

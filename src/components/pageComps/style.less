@@ -1,3 +1,9 @@
+:root {
+  --toolbarButton-zoomOut-icon: url(../../assets/images/toolbarButton-zoomOut.svg);
+  --toolbarButton-zoomIn-icon: url(../../assets/images/toolbarButton-zoomIn.svg);
+  --separator-color: rgba(0, 0, 0, 0.3);
+}
+
 .title {
   display: flex;
   justify-content: space-between;
@@ -53,4 +59,47 @@
     border-radius: 5px;
     cursor: pointer;
   }
+}
+
+
+.toolbarButton {
+  border: 0 none;
+  background: none;
+  width: 28px;
+  height: 28px;
+  border: none;
+  border-radius: 2px;
+  color: #666;
+  font-size: 12px;
+  cursor: pointer;
+
+}
+
+.toolbarButton::before {
+  /* All matching have a size of 16x16
+   * All relevant containers have a size of 28x28 */
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  width: 16px;
+  height: 16px;
+  content: "";
+  // background-color: var(--toolbar-icon-bg-color);
+  background-size: cover;
+}
+
+.splitToolbarButtonSeparator {
+  float: inline-start;
+  margin: 4px 0;
+  width: 1px;
+  height: 20px;
+  background-color: var(--separator-color);
+}
+
+.zoomOut::before {
+  background-image: var(--toolbarButton-zoomOut-icon);
+}
+
+.zoomIn::before {
+  background-image: var(--toolbarButton-zoomIn-icon);
 }

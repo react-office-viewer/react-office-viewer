@@ -248,7 +248,7 @@ export default forwardRef((props, ref) => {
                         <div className={styles["splitToolbarButton"]}>
                             <button className={`${styles["toolbarButton"]} ${styles["zoomOut"]}`} title={t("zoomOut")} onClick={onZoomOut} disabled={scaleOut === MIN_SCALE}>
                             </button>
-                            <div className="splitToolbarButtonSeparator"></div>
+                            <div className={styles["splitToolbarButtonSeparator"]}></div>
                             <button className={`${styles["toolbarButton"]} ${styles["zoomIn"]}`} title={t("zoomIn")} onClick={onZoomIn} disabled={scaleOut === MAX_SCALE}>
                             </button>
                         </div>
