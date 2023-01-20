@@ -1365,7 +1365,7 @@ var Toolbar = /*#__PURE__*/React.forwardRef(function (props, ref) {
     onClick: onZoomOut,
     disabled: scaleOut === MIN_SCALE
   }), /*#__PURE__*/React__default["default"].createElement("div", {
-    className: "splitToolbarButtonSeparator"
+    className: styles$3["splitToolbarButtonSeparator"]
   }), /*#__PURE__*/React__default["default"].createElement("button", {
     className: "".concat(styles$3["toolbarButton"], " ").concat(styles$3["zoomIn"]),
     title: t("zoomIn"),
@@ -1755,8 +1755,8 @@ var css_248z$2 = ".style_wbSheets_wrapper__JKilx {\n  position: relative;\n  pad
 var styles$2 = {"wbSheets_wrapper":"style_wbSheets_wrapper__JKilx","wbSheets_clas_ul":"style_wbSheets_clas_ul__5B-Wu","selected":"style_selected__T2M0M","loadingPage":"style_loadingPage__JCJEO","loading":"style_loading__juEbG","errorLine":"style_errorLine__TZgZp","title":"style_title__ZuK1F","download":"style_download__bceuJ"};
 styleInject(css_248z$2);
 
-var css_248z$1 = ".style_title__FRdLc {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2px 10px;\n  margin-top: 0;\n  margin-bottom: 0;\n  width: 100%;\n  /* border: 1px solid; */\n  color: #fff;\n}\n.style_download__Tv-Fp {\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.style_loadingPage__SG90X {\n  position: absolute;\n  z-index: 1000;\n  width: 100%;\n  height: 100%;\n}\n.style_loadingPage__SG90X .style_loading__SZRuZ {\n  position: absolute;\n  z-index: 100;\n  left: 50%;\n  top: 20px;\n  -webkit-transform: translate(-50%, 100px) scale(1.5);\n          transform: translate(-50%, 100px) scale(1.5);\n}\n.style_errorLine__prTMF {\n  width: 100%;\n  height: 32px;\n  position: absolute;\n  z-index: 2000;\n  top: 0;\n  left: 0;\n  background-color: #e21e1e;\n  color: #fff;\n  padding: 4px 10px;\n  display: flex;\n  justify-content: space-between;\n}\n.style_errorLine__prTMF > button {\n  color: #666;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}\n";
-var styles$1 = {"title":"style_title__FRdLc","download":"style_download__Tv-Fp","loadingPage":"style_loadingPage__SG90X","loading":"style_loading__SZRuZ","errorLine":"style_errorLine__prTMF"};
+var css_248z$1 = ":root {\n  --toolbarButton-zoomOut-icon: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik0xMy4zNzUgOS4yNUMxMy41NDA4IDkuMjUgMTMuNjk5NyA5LjE4NDE1IDEzLjgxNjkgOS4wNjY5NEMxMy45MzQyIDguOTQ5NzMgMTQgOC43OTA3NiAxNCA4LjYyNUMxNCA4LjQ1OTI0IDEzLjkzNDIgOC4zMDAyNyAxMy44MTY5IDguMTgzMDZDMTMuNjk5NyA4LjA2NTg1IDEzLjU0MDggOCAxMy4zNzUgOEgyLjYyNUMyLjQ1OTI0IDggMi4zMDAyNyA4LjA2NTg1IDIuMTgzMDYgOC4xODMwNkMyLjA2NTg1IDguMzAwMjcgMiA4LjQ1OTI0IDIgOC42MjVDMiA4Ljc5MDc2IDIuMDY1ODUgOC45NDk3MyAyLjE4MzA2IDkuMDY2OTRDMi4zMDAyNyA5LjE4NDE1IDIuNDU5MjQgOS4yNSAyLjYyNSA5LjI1SDEzLjM3NVoiIGZpbGw9IiIvPg0KPC9zdmc+DQo=');\n  --toolbarButton-zoomIn-icon: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0iI2ZmZiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4NCjxwYXRoIGQ9Ik03LjAwNDg4IDkuNzVWMTRDNy4wMDQ4OCAxNC4xNjU4IDcuMDcwNzMgMTQuMzI0NyA3LjE4Nzk0IDE0LjQ0MTlDNy4zMDUxNSAxNC41NTkyIDcuNDY0MTIgMTQuNjI1IDcuNjI5ODggMTQuNjI1QzcuNzk1NjQgMTQuNjI1IDcuOTU0NjEgMTQuNTU5MiA4LjA3MTgzIDE0LjQ0MTlDOC4xODkwNCAxNC4zMjQ3IDguMjU0ODggMTQuMTY1OCA4LjI1NDg4IDE0VjkuNzVMOC43NTQ4OCA5LjI1SDEzLjAwNDlDMTMuMTcwNiA5LjI1IDEzLjMyOTYgOS4xODQxNSAxMy40NDY4IDkuMDY2OTRDMTMuNTY0IDguOTQ5NzMgMTMuNjI5OSA4Ljc5MDc2IDEzLjYyOTkgOC42MjVDMTMuNjI5OSA4LjQ1OTI0IDEzLjU2NCA4LjMwMDI3IDEzLjQ0NjggOC4xODMwNkMxMy4zMjk2IDguMDY1ODUgMTMuMTcwNiA4IDEzLjAwNDkgOEg4Ljc1NDg4TDguMjU0ODggNy41VjMuMjVDOC4yNTQ4OCAzLjA4NDI0IDguMTg5MDQgMi45MjUyNyA4LjA3MTgzIDIuODA4MDZDNy45NTQ2MSAyLjY5MDg1IDcuNzk1NjQgMi42MjUgNy42Mjk4OCAyLjYyNUM3LjQ2NDEyIDIuNjI1IDcuMzA1MTUgMi42OTA4NSA3LjE4Nzk0IDIuODA4MDZDNy4wNzA3MyAyLjkyNTI3IDcuMDA0ODggMy4wODQyNCA3LjAwNDg4IDMuMjVWNy41TDYuNTA0ODggOEgyLjI1NDg4QzIuMDg5MTIgOCAxLjkzMDE1IDguMDY1ODUgMS44MTI5NCA4LjE4MzA2QzEuNjk1NzMgOC4zMDAyNyAxLjYyOTg4IDguNDU5MjQgMS42Mjk4OCA4LjYyNUMxLjYyOTg4IDguNzkwNzYgMS42OTU3MyA4Ljk0OTczIDEuODEyOTQgOS4wNjY5NEMxLjkzMDE1IDkuMTg0MTUgMi4wODkxMiA5LjI1IDIuMjU0ODggOS4yNUg2LjM5MTg4TDcuMDA0ODggOS43NVoiIGZpbGw9IiIvPg0KPC9zdmc+DQo=');\n  --separator-color: rgba(0, 0, 0, 0.3);\n}\n.style_title__FRdLc {\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 2px 10px;\n  margin-top: 0;\n  margin-bottom: 0;\n  width: 100%;\n  /* border: 1px solid; */\n  color: #fff;\n}\n.style_download__Tv-Fp {\n  background: transparent;\n  border: none;\n  cursor: pointer;\n}\n.style_loadingPage__SG90X {\n  position: absolute;\n  z-index: 1000;\n  width: 100%;\n  height: 100%;\n}\n.style_loadingPage__SG90X .style_loading__SZRuZ {\n  position: absolute;\n  z-index: 100;\n  left: 50%;\n  top: 20px;\n  -webkit-transform: translate(-50%, 100px) scale(1.5);\n          transform: translate(-50%, 100px) scale(1.5);\n}\n.style_errorLine__prTMF {\n  width: 100%;\n  height: 32px;\n  position: absolute;\n  z-index: 2000;\n  top: 0;\n  left: 0;\n  background-color: #e21e1e;\n  color: #fff;\n  padding: 4px 10px;\n  display: flex;\n  justify-content: space-between;\n}\n.style_errorLine__prTMF > button {\n  color: #666;\n  border: none;\n  border-radius: 5px;\n  cursor: pointer;\n}\n.style_toolbarButton__xnv-- {\n  border: 0 none;\n  background: none;\n  width: 28px;\n  height: 28px;\n  border: none;\n  border-radius: 2px;\n  color: #666;\n  font-size: 12px;\n  cursor: pointer;\n}\n.style_toolbarButton__xnv--::before {\n  /* All matching have a size of 16x16\n   * All relevant containers have a size of 28x28 */\n  position: absolute;\n  top: 6px;\n  left: 6px;\n  width: 16px;\n  height: 16px;\n  content: \"\";\n  background-size: cover;\n}\n.style_splitToolbarButtonSeparator__sw2vF {\n  float: inline-start;\n  margin: 4px 0;\n  width: 1px;\n  height: 20px;\n  background-color: var(--separator-color);\n}\n.style_zoomOut__x1h-W::before {\n  background-image: var(--toolbarButton-zoomOut-icon);\n}\n.style_zoomIn__6odI-::before {\n  background-image: var(--toolbarButton-zoomIn-icon);\n}\n";
+var styles$1 = {"title":"style_title__FRdLc","download":"style_download__Tv-Fp","loadingPage":"style_loadingPage__SG90X","loading":"style_loading__SZRuZ","errorLine":"style_errorLine__prTMF","toolbarButton":"style_toolbarButton__xnv--","splitToolbarButtonSeparator":"style_splitToolbarButtonSeparator__sw2vF","zoomOut":"style_zoomOut__x1h-W","zoomIn":"style_zoomIn__6odI-"};
 styleInject(css_248z$1);
 
 function Loading(props) {
@@ -1782,13 +1782,31 @@ function TitleWithDownload(props) {
     _props$disabled = props.disabled,
     disabled = _props$disabled === void 0 ? false : _props$disabled,
     _props$backgroundColo = props.backgroundColor,
-    backgroundColor = _props$backgroundColo === void 0 ? '#1e8e3edb' : _props$backgroundColo;
+    backgroundColor = _props$backgroundColo === void 0 ? '#1e8e3edb' : _props$backgroundColo,
+    zoom = props.zoom,
+    onZoom = props.onZoom;
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles$1.title,
     style: {
       backgroundColor: backgroundColor
     }
-  }, /*#__PURE__*/React__default["default"].createElement("span", null, fileName), /*#__PURE__*/React__default["default"].createElement("button", {
+  }, /*#__PURE__*/React__default["default"].createElement("span", null, fileName), zoom && /*#__PURE__*/React__default["default"].createElement("div", {
+    style: {
+      display: 'flex'
+    }
+  }, /*#__PURE__*/React__default["default"].createElement("button", {
+    className: "".concat(styles$1["toolbarButton"], " ").concat(styles$1["zoomOut"]),
+    onClick: function onClick() {
+      return onZoom('out');
+    }
+  }), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: styles$1["splitToolbarButtonSeparator"]
+  }), /*#__PURE__*/React__default["default"].createElement("button", {
+    className: "".concat(styles$1["toolbarButton"], " ").concat(styles$1["zoomIn"]),
+    onClick: function onClick() {
+      return onZoom('in');
+    }
+  })), /*#__PURE__*/React__default["default"].createElement("button", {
     className: styles$1["download"],
     title: t("download"),
     onClick: handleDownload,
@@ -2042,14 +2060,18 @@ function DocxViewer$1(props) {
     _useState8 = _slicedToArray(_useState7, 2),
     errorInfo = _useState8[0];
     _useState8[1];
-  var _useState9 = React.useState(),
+  var _useState9 = React.useState(1),
     _useState10 = _slicedToArray(_useState9, 2),
-    fileArrayBuffer = _useState10[0],
-    setFileArrayBuffer = _useState10[1]; //ArrayBuffer类型的文件
-  var _useState11 = React.useState(false),
+    scale = _useState10[0],
+    setScale = _useState10[1];
+  var _useState11 = React.useState(),
     _useState12 = _slicedToArray(_useState11, 2),
-    showLoading = _useState12[0],
-    setShowLoading = _useState12[1];
+    fileArrayBuffer = _useState12[0],
+    setFileArrayBuffer = _useState12[1]; //ArrayBuffer类型的文件
+  var _useState13 = React.useState(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    showLoading = _useState14[0],
+    setShowLoading = _useState14[1];
   React.useEffect(function () {
     if (outFileName) {
       setFileName(outFileName);
@@ -2151,6 +2173,20 @@ function DocxViewer$1(props) {
   var onShowError = function onShowError(status) {
     setShowError(status);
   };
+  var onZoom = function onZoom(direc) {
+    if (direc == 'in') {
+      //放大
+      if (scale >= 1) return;
+      var _scale = scale + 0.1;
+      //console.log(_scale);
+      setScale(_scale.toFixed(1) * 1);
+    } else {
+      if (scale <= 0.3) return;
+      var _scale2 = scale - 0.1;
+      //console.log(_scale);
+      setScale(_scale2.toFixed(1) * 1);
+    }
+  };
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles['pg-viewer-wrapper'],
     style: {
@@ -2167,11 +2203,13 @@ function DocxViewer$1(props) {
     backgroundColor: "rgba(35,100,155,0.9)",
     handleDownload: handleDownload,
     fileName: fileName,
-    disabled: !fileArrayBuffer
+    disabled: !fileArrayBuffer,
+    onZoom: onZoom,
+    zoom: true
   }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: styles['document-container'],
     style: {
-      width: '100%',
+      width: scale * 100 + '%',
       height: '85%',
       overflow: 'auto'
     },
